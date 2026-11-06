@@ -10,153 +10,222 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfaf7;
+    --bg: #f6f4ef;
     --surface: #ffffff;
-    --ink: #1c1f23;
-    --muted: #5d6470;
-    --rule: #e3e0d8;
-    --accent: #0f5c4a;
-    --accent-soft: #e4efeb;
+    --ink: #1a1d21;
+    --muted: #5b626c;
+    --rule: #dedad1;
+    --accent: #b4541f;
+    --accent-soft: #f5e6dc;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #14171a;
-      --surface: #1b1f23;
-      --ink: #e8e6e1;
-      --muted: #9aa1ab;
-      --rule: #2c3238;
-      --accent: #6cc3a9;
-      --accent-soft: #1d2f2a;
+      --bg: #121417; --surface: #1a1d21; --ink: #ebe8e2; --muted: #9ba2ac;
+      --rule: #2b3036; --accent: #e8925c; --accent-soft: #2e2219;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #14171a; --surface: #1b1f23; --ink: #e8e6e1; --muted: #9aa1ab;
-    --rule: #2c3238; --accent: #6cc3a9; --accent-soft: #1d2f2a;
+    --bg: #121417; --surface: #1a1d21; --ink: #ebe8e2; --muted: #9ba2ac;
+    --rule: #2b3036; --accent: #e8925c; --accent-soft: #2e2219;
   }
 
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 72px; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font: 400 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 400 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
   }
-  .page { max-width: 780px; margin: 0 auto; padding: 56px 16px 72px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-  header { padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
-  h1 {
-    font: 600 2.5rem/1.1 "Source Serif 4", Georgia, serif;
-    margin: 0 0 8px; letter-spacing: -0.01em;
+  /* Top bar */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule);
   }
-  .headline { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin: 0 0 14px; }
-  .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 0.92rem; }
-  .meta a { color: inherit; }
-  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn {
-    font: inherit; font-size: 0.88rem; font-weight: 500;
-    padding: 7px 14px; border-radius: 6px; cursor: pointer;
+  .bar-in { max-width: 860px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; gap: 20px; }
+  .mark { font: 600 1.05rem/1 Fraunces, Georgia, serif; color: var(--ink); margin-right: auto; }
+  .bar nav { display: flex; gap: 18px; font-size: 0.88rem; }
+  .bar nav a { color: var(--muted); }
+  .bar nav a:hover { color: var(--accent); text-decoration: none; }
+  .icon-btn {
     border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
-    text-decoration: none;
+    width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: grid; place-items: center;
   }
-  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .icon-btn svg { width: 16px; height: 16px; }
 
-  section { padding-top: 36px; }
+  .page { max-width: 860px; margin: 0 auto; padding: 0 16px 64px; }
+
+  /* Intro */
+  .intro { padding: 96px 0 72px; }
+  .eyebrow { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); margin: 0 0 18px; }
+  .intro h1 {
+    font: 600 clamp(2.6rem, 7vw, 4.4rem)/1.02 Fraunces, Georgia, serif;
+    letter-spacing: -0.02em; margin: 0 0 18px;
+  }
+  .intro h1 span { color: var(--muted); font-weight: 400; }
+  .intro .lede { font-size: 1.2rem; max-width: 34em; color: var(--muted); margin: 0 0 30px; }
+  .intro .lede strong { color: var(--ink); font-weight: 500; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    font: inherit; font-size: 0.92rem; font-weight: 500; padding: 10px 18px; border-radius: 8px;
+    border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer;
+  }
+  .btn:hover { background: var(--accent-soft); text-decoration: none; }
+  .btn.solid { background: var(--accent); color: #fff; }
+  .btn.solid:hover { filter: brightness(1.08); background: var(--accent); }
+
+  /* Sections */
+  section { padding: 56px 0; border-top: 1px solid var(--rule); }
   h2 {
-    font: 600 0.78rem/1 Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--muted); margin: 0 0 18px;
+    display: flex; align-items: baseline; gap: 12px;
+    font: 600 1.7rem/1.2 Fraunces, Georgia, serif; margin: 0 0 28px;
   }
-  .summary p { margin: 0 0 12px; font-size: 1.05rem; }
+  h2 .n { font-family: var(--mono); font-size: 0.85rem; font-weight: 400; color: var(--accent); }
+  .prose p { margin: 0 0 14px; max-width: 40em; }
 
-  .item { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; margin-bottom: 26px; }
-  .item h3 { font: 600 1.15rem/1.3 "Source Serif 4", Georgia, serif; margin: 0; }
-  .item .org { color: var(--muted); font-size: 0.95rem; grid-column: 1; }
-  .item .when { color: var(--muted); font-size: 0.88rem; white-space: nowrap; grid-column: 2; grid-row: 1; text-align: right; }
-  .item .body { grid-column: 1 / -1; margin-top: 6px; }
-  .item .body p { margin: 0 0 8px; }
-  .item ul { margin: 6px 0 0; padding-left: 18px; }
-  .item li { margin-bottom: 4px; }
-  .tag {
-    display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); padding: 2px 8px; border-radius: 4px; margin-left: 6px;
-    vertical-align: middle;
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .skills h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+  .skills ul { list-style: none; margin: 0; padding: 0; }
+  .skills li { padding: 3px 0; font-size: 0.95rem; }
+  .skills li::before { content: "▹"; color: var(--accent); margin-right: 8px; }
+
+  /* Experience */
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 6px 28px; padding: 18px 0; }
+  .job + .job { border-top: 1px dashed var(--rule); }
+  .job .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 5px; }
+  .job h3 { font-size: 1.08rem; font-weight: 600; margin: 0; }
+  .job h3 .at { color: var(--accent); font-weight: 500; }
+  .job .where { font-size: 0.88rem; color: var(--muted); margin: 2px 0 8px; }
+  .job ul { margin: 0; padding-left: 18px; }
+  .job li { margin-bottom: 4px; }
+  .job p { margin: 0; }
+
+  /* Work cards */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 22px;
+    display: flex; flex-direction: column; transition: transform .15s ease, border-color .15s ease;
   }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card .kind { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 8px; }
+  .card h3 { font: 600 1.2rem/1.3 Fraunces, Georgia, serif; margin: 0 0 10px; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+  .tags span { border: 1px solid var(--rule); border-radius: 4px; padding: 1px 7px; }
 
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .skills dt { font-weight: 600; font-size: 0.92rem; }
-  .skills dd { margin: 2px 0 14px; color: var(--muted); }
+  /* Education */
+  .edu { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 12px 0; }
+  .edu h3 { font-size: 1.02rem; font-weight: 600; margin: 0; }
+  .edu .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+  .edu .where { color: var(--muted); font-size: 0.9rem; grid-column: 1 / -1; }
 
-  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.82rem; }
+  /* Footer */
+  footer { border-top: 1px solid var(--rule); padding-top: 36px; text-align: center; }
+  footer h2 { justify-content: center; }
+  footer p { color: var(--muted); max-width: 32em; margin: 0 auto 22px; }
+  .social { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
+  .social a { color: var(--muted); }
+  .social a:hover { color: var(--accent); }
+  .social svg { width: 22px; height: 22px; }
+  .small { font-size: 0.78rem; color: var(--muted); margin-top: 28px; }
 
-  @media (max-width: 600px) {
-    .page { padding-top: 36px; }
-    h1 { font-size: 2rem; }
-    .item { grid-template-columns: 1fr; }
-    .item .when { grid-column: 1; grid-row: auto; text-align: left; }
-    .grid2 { grid-template-columns: 1fr; gap: 0; }
+  @media (max-width: 720px) {
+    .bar nav { display: none; }
+    .intro { padding: 56px 0 48px; }
+    .skills { grid-template-columns: 1fr 1fr; }
+    .job { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
   }
 
   @media print {
-    :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --rule: #ccc; --accent: #0f5c4a; --accent-soft: #eef4f2; }
-    body { font-size: 9.5pt; line-height: 1.45; }
+    :root { --bg:#fff; --surface:#fff; --ink:#000; --muted:#444; --rule:#ccc; }
     @page { margin: 14mm; }
-    h1 { font-size: 22pt; }
-    .page { max-width: none; padding: 0; }
-    .actions { display: none; }
-    section { padding-top: 18px; break-inside: avoid-page; }
-    .item { break-inside: avoid; margin-bottom: 14px; }
-    footer { display: none; }
-    a { text-decoration: none; color: inherit; }
+    body { font-size: 9.5pt; line-height: 1.45; }
+    .bar, .cta, .social, footer, #work { display: none; }
+    .intro { padding: 0 0 12px; }
+    .intro h1 { font-size: 24pt; }
+    section { padding: 14px 0; break-inside: avoid-page; }
+    .job, .edu { break-inside: avoid; padding: 6px 0; }
+    a { color: inherit; }
   }
 </style>
 </head>
 <body>
-<main class="page">
 
-  <header>
-    <h1>Antonio M. Hernández</h1>
-    <p class="headline">AI in Energy Operations · Process Improvement</p>
-    <div class="meta">
-      <span>Málaga, Spain</span>
-      <a href="https://www.linkedin.com/in/antoniomhernandez">linkedin.com/in/antoniomhernandez</a>
-    </div>
-    <div class="actions">
-      <button class="btn" onclick="window.print()">Download PDF</button>
-      <button class="btn" id="theme">Toggle theme</button>
-    </div>
-  </header>
+<div class="bar">
+  <div class="bar-in">
+    <a class="mark" href="#top">AMH</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="icon-btn" id="theme" aria-label="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</div>
 
-  <section class="summary">
-    <h2>Profile</h2>
-    <p>Operations analyst in Spain's regulated electricity distribution business. I work on the processes behind grid maintenance and its supply chain: finding what constrains execution and building the tooling that removes it. Automation and analytics for most of that time; AI more recently.</p>
-    <p>Since April 2026 I also co-hold the AI Champion mandate for the Andalucía and Extremadura Operating Area, coordinating the network of AI referents across its operational departments.</p>
+<main class="page" id="top">
+
+  <div class="intro">
+    <p class="eyebrow">Hello, I'm</p>
+    <h1>Antonio M. Hernández.<br><span>I fix how operations run.</span></h1>
+    <p class="lede">Operations analyst in <strong>Spain's regulated electricity distribution business</strong>, working on the processes behind grid maintenance and its supply chain — and, since 2026, <strong>AI Champion</strong> for the Andalucía and Extremadura Operating Area.</p>
+    <div class="cta">
+      <a class="btn solid" href="https://www.linkedin.com/in/antoniomhernandez">Get in touch</a>
+      <button class="btn" onclick="window.print()">Download CV (PDF)</button>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2><span class="n">01.</span>Background</h2>
+    <div class="prose">
+      <p>I'm an energy engineer with a master's in industrial economics. My work is finding what constrains execution in grid maintenance and its supply chain, then building the tooling that removes the constraint: automation and analytics for most of that time, AI more recently.</p>
+      <p>Before e-distribución I spent three years in Repsol's Group Audit Division, on national and international engagements, after a year in the innovation team at Repsol TechLab. In 2025–26 I completed a six-month rotation at the Sicily DSO in Palermo.</p>
+    </div>
   </section>
 
-  <section>
-    <h2>Experience</h2>
+  <section id="skills">
+    <h2><span class="n">02.</span>Skills</h2>
+    <div class="skills">
+      <div><h3>Power Platform</h3><ul><li>Power BI</li><li>Power Apps</li><li>Power Automate</li></ul></div>
+      <div><h3>Data</h3><ul><li>Python</li><li>R</li><li>ETL &amp; RPA</li><li>VBA</li></ul></div>
+      <div><h3>Domain</h3><ul><li>Electricity distribution</li><li>O&amp;M supply chain</li><li>Internal audit</li><li>AI governance</li></ul></div>
+      <div><h3>Languages</h3><ul><li>Spanish · native</li><li>English · C1 (CAE)</li><li>Italian · B1</li></ul></div>
+    </div>
+  </section>
 
-    <div class="item">
-      <h3>AI Champion</h3>
-      <span class="when">Apr 2026 – present</span>
-      <span class="org">e-distribución (Endesa · Enel Grids) · Andalucía &amp; Extremadura</span>
-      <div class="body">
-        <p>AI reference for the Operating Area, held alongside my line role.</p>
+  <section id="experience">
+    <h2><span class="n">03.</span>Experience</h2>
+
+    <div class="job">
+      <div class="when">Apr 2026 — now</div>
+      <div>
+        <h3>AI Champion <span class="at">@ e-distribución</span></h3>
+        <div class="where">Endesa · Enel Grids · Andalucía &amp; Extremadura Operating Area</div>
         <ul>
           <li>Coordinate the network of departmental AI referents; convene the evaluation forum and review the proposals each department brings forward.</li>
           <li>First cycle consolidated every proposal across the area into a prioritised portfolio, each case with requirements capture, a business case and a documented evaluation pipeline.</li>
-          <li>AI governance criteria applied alongside technical and business viability, as the regulated context requires.</li>
+          <li>Held alongside my line role.</li>
         </ul>
       </div>
     </div>
 
-    <div class="item">
-      <h3>Senior Operations Analyst</h3>
-      <span class="when">Apr 2022 – present</span>
-      <span class="org">e-distribución (Endesa · Enel Grids) · O&amp;M Supply Chain</span>
-      <div class="body">
+    <div class="job">
+      <div class="when">Apr 2022 — now</div>
+      <div>
+        <h3>Senior Operations Analyst <span class="at">@ e-distribución</span></h3>
+        <div class="where">Endesa · Enel Grids · O&amp;M Supply Chain</div>
         <ul>
           <li>Business expert between operations, procurement and IT, working on what slows execution down.</li>
           <li>Designed and own the internal ticketing application the operations teams use daily.</li>
@@ -166,111 +235,78 @@
       </div>
     </div>
 
-    <div class="item">
-      <h3>Engineering Exchange Programme</h3>
-      <span class="when">Oct 2025 – Mar 2026</span>
-      <span class="org">e-distribuzione (Enel Grids) · Palermo, Italy</span>
-      <div class="body">
-        <p>Selective six-month international rotation at the Sicily DSO, across three departments of the Palermo Operational Unit: medium-voltage project design, grid analysis and operational planning.</p>
+    <div class="job">
+      <div class="when">Oct 2025 — Mar 2026</div>
+      <div>
+        <h3>Engineering Exchange Programme <span class="at">@ e-distribuzione</span></h3>
+        <div class="where">Enel Grids · Palermo, Italy</div>
+        <p>Selective six-month rotation across medium-voltage project design, grid analysis and operational planning.</p>
       </div>
     </div>
 
-    <div class="item">
-      <h3>Internal Auditor</h3>
-      <span class="when">Dec 2018 – Mar 2022</span>
-      <span class="org">Repsol · Group Audit Division · Madrid</span>
-      <div class="body">
+    <div class="job">
+      <div class="when">Dec 2018 — Mar 2022</div>
+      <div>
+        <h3>Internal Auditor <span class="at">@ Repsol</span></h3>
+        <div class="where">Group Audit Division · Madrid</div>
         <ul>
-          <li>Risk-based assurance and advisory on national and international engagements across upstream, downstream and corporate functions.</li>
+          <li>Risk-based assurance and advisory across upstream, downstream and corporate functions, national and international.</li>
           <li>Auditor and, selectively, team leader. Applied data analysis and modelling to substantive tests.</li>
         </ul>
       </div>
     </div>
 
-    <div class="item">
-      <h3>Innovation Business Development Intern</h3>
-      <span class="when">Nov 2017 – Nov 2018</span>
-      <span class="org">Repsol TechLab · Madrid</span>
-      <div class="body">
-        <p>Business cases for R&amp;D technology-transfer projects. Co-designed the prioritisation framework for the innovation portfolio.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS — optional. Uncomment and fill in only with work you can publish
-       (no company code, data or internal figures).
-  <section>
-    <h2>Selected projects</h2>
-    <div class="item">
-      <h3>Project name</h3>
-      <span class="when">2026</span>
-      <span class="org">Personal project · Python, Streamlit</span>
-      <div class="body"><p>The problem, what you built, and what it changed. Link to the repo.</p></div>
-    </div>
-  </section>
-  -->
-
-  <section>
-    <h2>Education</h2>
-
-    <div class="item">
-      <h3>MSc Industrial Economics and Markets</h3>
-      <span class="when">2017 – 2019</span>
-      <span class="org">Universidad Carlos III de Madrid</span>
-      <div class="body"><p>Industrial organisation, regulation and competition economics, with specialisation in the energy, transport and telecommunications sectors.</p></div>
-    </div>
-
-    <div class="item">
-      <h3>BEng Energy Engineering</h3>
-      <span class="when">2012 – 2017</span>
-      <span class="org">Universidad de Málaga &amp; Universidad de Sevilla (joint programme)</span>
-      <div class="body"><p>Specialisation in renewable energy sources. Erasmus+ year at Transilvania University of Brașov, Romania.</p></div>
-    </div>
-
-    <div class="item">
-      <h3>Advanced Program in Data Science &amp; AI</h3>
-      <span class="when">2024 – 2025</span>
-      <span class="org">datahack school · Madrid</span>
-      <div class="body"><p>Machine learning, deep learning, big data architecture, and AI ethics and governance.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="grid2">
+    <div class="job">
+      <div class="when">Nov 2017 — Nov 2018</div>
       <div>
-        <h2>Skills</h2>
-        <dl class="skills">
-          <dt>Microsoft Power Platform</dt><dd>Power BI, Power Apps, Power Automate</dd>
-          <dt>Programming &amp; data</dt><dd>Python, R, VBA, ETL, RPA</dd>
-          <dt>Domain</dt><dd>Electricity distribution, O&amp;M supply chain, internal audit</dd>
-        </dl>
-      </div>
-      <div>
-        <h2>Languages</h2>
-        <dl class="skills">
-          <dt>Spanish</dt><dd>Native</dd>
-          <dt>English</dt><dd>C1 · Cambridge Advanced (CAE)</dd>
-          <dt>Italian</dt><dd>B1</dd>
-        </dl>
+        <h3>Innovation Business Development Intern <span class="at">@ Repsol TechLab</span></h3>
+        <div class="where">Madrid</div>
+        <p>Business cases for R&amp;D technology-transfer projects; co-designed the innovation portfolio's prioritisation framework.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>Other</h2>
-    <div class="item">
-      <h3>Volunteer, Fundación Endesa</h3>
-      <span class="when">2022 – present</span>
-      <span class="org">Energy transition and climate change activities</span>
-    </div>
-    <div class="item">
-      <h3>Aspen Institute seminar "Why People Still Matter?"</h3>
-      <span class="when">Oct 2024</span>
-      <span class="org">Ronda, Spain</span>
+  <section id="work">
+    <h2><span class="n">04.</span>Selected work</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="kind">Internal · e-distribución</div>
+        <h3>AI use-case portfolio</h3>
+        <p>An evaluation forum and pipeline turning proposals from the area's operational departments into a prioritised portfolio, each case with requirements, a business case and governance review.</p>
+        <div class="tags"><span>AI governance</span><span>Portfolio management</span></div>
+      </div>
+      <div class="card">
+        <div class="kind">Internal · e-distribución</div>
+        <h3>Operations ticketing app</h3>
+        <p>The application the operations teams use daily to raise and track requests to the supply chain function. Designed, built and maintained end to end.</p>
+        <div class="tags"><span>Power Apps</span><span>Power Automate</span></div>
+      </div>
+      <!-- Add personal projects here only if they are publishable
+           (no company code, data or internal figures). Copy a .card block and add a link. -->
     </div>
   </section>
 
-  <footer>Last updated November 2026</footer>
+  <section id="education">
+    <h2><span class="n">05.</span>Education</h2>
+    <div class="edu"><h3>MSc Industrial Economics and Markets</h3><span class="when">2017 — 2019</span><span class="where">Universidad Carlos III de Madrid · regulation, competition, energy sector</span></div>
+    <div class="edu"><h3>BEng Energy Engineering</h3><span class="when">2012 — 2017</span><span class="where">Universidad de Málaga &amp; Universidad de Sevilla · Erasmus+ year in Brașov, Romania</span></div>
+    <div class="edu"><h3>Advanced Program in Data Science &amp; AI</h3><span class="when">2024 — 2025</span><span class="where">datahack school · Madrid</span></div>
+  </section>
+
+  <footer id="contact">
+    <h2><span class="n">06.</span>Get in touch</h2>
+    <p>The quickest way to reach me is LinkedIn.</p>
+    <a class="btn solid" href="https://www.linkedin.com/in/antoniomhernandez">Message me on LinkedIn</a>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/antoniomhernandez" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.9c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg>
+      </a>
+      <a href="https://github.com/rodheram" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+    </div>
+    <p class="small">Last updated November 2026</p>
+  </footer>
 </main>
 
 <script>
