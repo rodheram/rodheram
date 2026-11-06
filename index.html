@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antonio M. Hernández</title>
+<meta name="description" content="Antonio M. Hernández — AI in energy operations and process improvement. Electricity distribution, O&M supply chain, data and automation.">
+<!-- Discreet by default: search engines will not index this page.
+     Remove the next line when you want it to be findable on Google. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --ink: #1c1f23;
+    --muted: #5d6470;
+    --rule: #e3e0d8;
+    --accent: #0f5c4a;
+    --accent-soft: #e4efeb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171a;
+      --surface: #1b1f23;
+      --ink: #e8e6e1;
+      --muted: #9aa1ab;
+      --rule: #2c3238;
+      --accent: #6cc3a9;
+      --accent-soft: #1d2f2a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14171a; --surface: #1b1f23; --ink: #e8e6e1; --muted: #9aa1ab;
+    --rule: #2c3238; --accent: #6cc3a9; --accent-soft: #1d2f2a;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .page { max-width: 780px; margin: 0 auto; padding: 56px 16px 72px; }
+
+  header { padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+  h1 {
+    font: 600 2.5rem/1.1 "Source Serif 4", Georgia, serif;
+    margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  .headline { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin: 0 0 14px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 0.92rem; }
+  .meta a { color: inherit; }
+  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    font: inherit; font-size: 0.88rem; font-weight: 500;
+    padding: 7px 14px; border-radius: 6px; cursor: pointer;
+    border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
+    text-decoration: none;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  section { padding-top: 36px; }
+  h2 {
+    font: 600 0.78rem/1 Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--muted); margin: 0 0 18px;
+  }
+  .summary p { margin: 0 0 12px; font-size: 1.05rem; }
+
+  .item { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; margin-bottom: 26px; }
+  .item h3 { font: 600 1.15rem/1.3 "Source Serif 4", Georgia, serif; margin: 0; }
+  .item .org { color: var(--muted); font-size: 0.95rem; grid-column: 1; }
+  .item .when { color: var(--muted); font-size: 0.88rem; white-space: nowrap; grid-column: 2; grid-row: 1; text-align: right; }
+  .item .body { grid-column: 1 / -1; margin-top: 6px; }
+  .item .body p { margin: 0 0 8px; }
+  .item ul { margin: 6px 0 0; padding-left: 18px; }
+  .item li { margin-bottom: 4px; }
+  .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); padding: 2px 8px; border-radius: 4px; margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .skills dt { font-weight: 600; font-size: 0.92rem; }
+  .skills dd { margin: 2px 0 14px; color: var(--muted); }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.82rem; }
+
+  @media (max-width: 600px) {
+    .page { padding-top: 36px; }
+    h1 { font-size: 2rem; }
+    .item { grid-template-columns: 1fr; }
+    .item .when { grid-column: 1; grid-row: auto; text-align: left; }
+    .grid2 { grid-template-columns: 1fr; gap: 0; }
+  }
+
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --rule: #ccc; --accent: #0f5c4a; --accent-soft: #eef4f2; }
+    body { font-size: 9.5pt; line-height: 1.45; }
+    @page { margin: 14mm; }
+    h1 { font-size: 22pt; }
+    .page { max-width: none; padding: 0; }
+    .actions { display: none; }
+    section { padding-top: 18px; break-inside: avoid-page; }
+    .item { break-inside: avoid; margin-bottom: 14px; }
+    footer { display: none; }
+    a { text-decoration: none; color: inherit; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <h1>Antonio M. Hernández</h1>
+    <p class="headline">AI in Energy Operations · Process Improvement</p>
+    <div class="meta">
+      <span>Málaga, Spain</span>
+      <a href="https://www.linkedin.com/in/antoniomhernandez">linkedin.com/in/antoniomhernandez</a>
+    </div>
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Download PDF</button>
+      <button class="btn" id="theme">Toggle theme</button>
+    </div>
+  </header>
+
+  <section class="summary">
+    <h2>Profile</h2>
+    <p>Operations analyst in Spain's regulated electricity distribution business. I work on the processes behind grid maintenance and its supply chain: finding what constrains execution and building the tooling that removes it. Automation and analytics for most of that time; AI more recently.</p>
+    <p>Since April 2026 I also co-hold the AI Champion mandate for the Andalucía and Extremadura Operating Area, coordinating the network of AI referents across its operational departments.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="item">
+      <h3>AI Champion</h3>
+      <span class="when">Apr 2026 – present</span>
+      <span class="org">e-distribución (Endesa · Enel Grids) · Andalucía &amp; Extremadura</span>
+      <div class="body">
+        <p>AI reference for the Operating Area, held alongside my line role.</p>
+        <ul>
+          <li>Coordinate the network of departmental AI referents; convene the evaluation forum and review the proposals each department brings forward.</li>
+          <li>First cycle consolidated every proposal across the area into a prioritised portfolio, each case with requirements capture, a business case and a documented evaluation pipeline.</li>
+          <li>AI governance criteria applied alongside technical and business viability, as the regulated context requires.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Senior Operations Analyst</h3>
+      <span class="when">Apr 2022 – present</span>
+      <span class="org">e-distribución (Endesa · Enel Grids) · O&amp;M Supply Chain</span>
+      <div class="body">
+        <ul>
+          <li>Business expert between operations, procurement and IT, working on what slows execution down.</li>
+          <li>Designed and own the internal ticketing application the operations teams use daily.</li>
+          <li>Build and maintain the ETL pipelines, RPA bots and Power BI dashboards the department runs on.</li>
+          <li>Acting Team Manager during my manager's leave. Mentoring the team's interns since 2023.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Engineering Exchange Programme</h3>
+      <span class="when">Oct 2025 – Mar 2026</span>
+      <span class="org">e-distribuzione (Enel Grids) · Palermo, Italy</span>
+      <div class="body">
+        <p>Selective six-month international rotation at the Sicily DSO, across three departments of the Palermo Operational Unit: medium-voltage project design, grid analysis and operational planning.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Internal Auditor</h3>
+      <span class="when">Dec 2018 – Mar 2022</span>
+      <span class="org">Repsol · Group Audit Division · Madrid</span>
+      <div class="body">
+        <ul>
+          <li>Risk-based assurance and advisory on national and international engagements across upstream, downstream and corporate functions.</li>
+          <li>Auditor and, selectively, team leader. Applied data analysis and modelling to substantive tests.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Innovation Business Development Intern</h3>
+      <span class="when">Nov 2017 – Nov 2018</span>
+      <span class="org">Repsol TechLab · Madrid</span>
+      <div class="body">
+        <p>Business cases for R&amp;D technology-transfer projects. Co-designed the prioritisation framework for the innovation portfolio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS — optional. Uncomment and fill in only with work you can publish
+       (no company code, data or internal figures).
+  <section>
+    <h2>Selected projects</h2>
+    <div class="item">
+      <h3>Project name</h3>
+      <span class="when">2026</span>
+      <span class="org">Personal project · Python, Streamlit</span>
+      <div class="body"><p>The problem, what you built, and what it changed. Link to the repo.</p></div>
+    </div>
+  </section>
+  -->
+
+  <section>
+    <h2>Education</h2>
+
+    <div class="item">
+      <h3>MSc Industrial Economics and Markets</h3>
+      <span class="when">2017 – 2019</span>
+      <span class="org">Universidad Carlos III de Madrid</span>
+      <div class="body"><p>Industrial organisation, regulation and competition economics, with specialisation in the energy, transport and telecommunications sectors.</p></div>
+    </div>
+
+    <div class="item">
+      <h3>BEng Energy Engineering</h3>
+      <span class="when">2012 – 2017</span>
+      <span class="org">Universidad de Málaga &amp; Universidad de Sevilla (joint programme)</span>
+      <div class="body"><p>Specialisation in renewable energy sources. Erasmus+ year at Transilvania University of Brașov, Romania.</p></div>
+    </div>
+
+    <div class="item">
+      <h3>Advanced Program in Data Science &amp; AI</h3>
+      <span class="when">2024 – 2025</span>
+      <span class="org">datahack school · Madrid</span>
+      <div class="body"><p>Machine learning, deep learning, big data architecture, and AI ethics and governance.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid2">
+      <div>
+        <h2>Skills</h2>
+        <dl class="skills">
+          <dt>Microsoft Power Platform</dt><dd>Power BI, Power Apps, Power Automate</dd>
+          <dt>Programming &amp; data</dt><dd>Python, R, VBA, ETL, RPA</dd>
+          <dt>Domain</dt><dd>Electricity distribution, O&amp;M supply chain, internal audit</dd>
+        </dl>
+      </div>
+      <div>
+        <h2>Languages</h2>
+        <dl class="skills">
+          <dt>Spanish</dt><dd>Native</dd>
+          <dt>English</dt><dd>C1 · Cambridge Advanced (CAE)</dd>
+          <dt>Italian</dt><dd>B1</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Other</h2>
+    <div class="item">
+      <h3>Volunteer, Fundación Endesa</h3>
+      <span class="when">2022 – present</span>
+      <span class="org">Energy transition and climate change activities</span>
+    </div>
+    <div class="item">
+      <h3>Aspen Institute seminar "Why People Still Matter?"</h3>
+      <span class="when">Oct 2024</span>
+      <span class="org">Ronda, Spain</span>
+    </div>
+  </section>
+
+  <footer>Last updated November 2026</footer>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    try { var saved = localStorage.getItem('theme'); if (saved) root.dataset.theme = saved; } catch (e) {}
+    document.getElementById('theme').addEventListener('click', function () {
+      var dark = root.dataset.theme
+        ? root.dataset.theme === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
